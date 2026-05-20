@@ -118,6 +118,12 @@
 
   <!-- ====================== SECTION 2 — Xiaoxi name card ====================== -->
   <section id="sec-2" class="section section-name" data-idx="1">
+    <!-- 粒子背景层（取自 Hero 发光散点，更克制） -->
+    <canvas id="cardParticles" class="xx-particles" aria-hidden="true"
+            data-particle-field data-count="52" data-opacity="0.3"
+            data-speed="0.5" data-links="false"></canvas>
+
+    <div class="xx-content">
     <!-- 顶部 metadata -->
     <div class="xx-topbar">
       <div>— 02 NAME · MY NAME IS</div>
@@ -179,6 +185,7 @@
         AVAILABLE — INTERNET · 2026
       </div>
     </div>
+    </div><!-- /.xx-content -->
   </section>
 
   <!-- ====================== SECTION 3 — Brief / Stats ====================== -->
@@ -365,6 +372,7 @@
 <script src="js/moons.js"></script>
 <script src="js/hero.js"></script>
 <script src="js/main.js"></script>
+<script src="js/particleField.js"></script>
 <script src="js/namecard.js"></script>
 <script src="js/particles.js"></script>
 <script src="js/constellation.js"></script>
