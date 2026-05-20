@@ -27,4 +27,14 @@
   section.addEventListener('mouseleave', function () {
     wraps.forEach(function (w) { w.style.transform = 'translate(0, 0)'; });
   });
+
+  /* ── 自动重排：每 4.5s 框的旋转角度优雅微调（±8°，1.8s 缓动过渡） ── */
+  var inners = section.querySelectorAll('.xx-frame-inner');
+  var baseRotations = [-8, 3, 10];
+  setInterval(function () {
+    inners.forEach(function (inner, i) {
+      var extra = (Math.random() - 0.5) * 16;
+      inner.style.transform = 'rotate(' + (baseRotations[i] + extra).toFixed(2) + 'deg)';
+    });
+  }, 4500);
 })();
