@@ -517,7 +517,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .xx-main {
   display: grid;
-  grid-template-columns: 1fr 240px;
+  grid-template-columns: 1fr 360px;
   gap: 40px;
   align-items: center;
   margin-bottom: 60px;
@@ -549,8 +549,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .xx-frames {
   position: relative;
-  width: 240px;
-  height: 240px;
+  width: 360px;
+  height: 345px;
+  transform: translateX(-50px);   /* 往左靠拢一点 */
 }
 
 .xx-frame-wrap {
@@ -558,13 +559,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.xx-frame-wrap:nth-child(1) { top: 10px; left: 0; }
-.xx-frame-wrap:nth-child(2) { top: 70px; left: 40px; }
-.xx-frame-wrap:nth-child(3) { top: 130px; left: 80px; }
+.xx-frame-wrap:nth-child(1) { top: 15px;  left: 0; }
+.xx-frame-wrap:nth-child(2) { top: 105px; left: 60px; }
+.xx-frame-wrap:nth-child(3) { top: 195px; left: 120px; }
 
 .xx-frame-inner {
-  width: 160px;
-  height: 100px;
+  width: 240px;
+  height: 150px;
   border: 1px solid;
   transition: transform 1.8s cubic-bezier(0.65, 0, 0.35, 1);
   overflow: hidden;
