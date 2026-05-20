@@ -36,15 +36,20 @@
   container.appendChild(barTxt);
 
   var loadN = 0;
+  var imagesReady = false;   /* true once all thumbnails have finished loading */
   function tick() {
     loadN++;
     var f = document.getElementById('sphereLoadFill');
     var t = document.getElementById('sphereLoadText');
     if (f) f.style.width = Math.round(loadN / COUNT * 100) + '%';
     if (t) t.textContent = 'LOADING · ' + loadN + ' / ' + COUNT;
-    if (loadN >= COUNT) setTimeout(function () {
-      bar.style.opacity = barTxt.style.opacity = '0';
-    }, 600);
+    if (loadN >= COUNT) {
+      imagesReady = true;
+      setTimeout(function () {
+        bar.style.opacity = barTxt.style.opacity = '0';
+      }, 600);
+      maybeStart();
+    }
   }
 
   /* ── CSS-3D stage ── */
@@ -243,11 +248,33 @@
     }, ENABLE_T);
   }
 
-  /* ── IntersectionObserver: fire once when section scrolls in ── */
+  /* ── Gate assembly on image readiness so the sphere never appears
+        half-empty: assemble only once all thumbs are loaded (or a max
+        timeout) AND the section has been scrolled into view. ── */
+  var inView        = false;
+  var startGated    = false;
+  var startTimedOut = false;
+  var fallbackTimer = null;
+
+  function maybeStart() {
+    if (startGated) return;
+    if (inView && (imagesReady || startTimedOut)) {
+      startGated = true;
+      if (fallbackTimer) clearTimeout(fallbackTimer);
+      startAnimation();
+    }
+  }
+
   var observer = new IntersectionObserver(function (entries) {
     if (entries[0].isIntersecting) {
       observer.disconnect();
-      startAnimation();
+      inView = true;
+      /* safety net: never wait more than 8s even on very slow networks */
+      fallbackTimer = setTimeout(function () {
+        startTimedOut = true;
+        maybeStart();
+      }, 8000);
+      maybeStart();
     }
   }, { threshold: 0.18 });
   observer.observe(container);
