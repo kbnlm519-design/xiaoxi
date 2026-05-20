@@ -188,15 +188,40 @@
     if ((e.key === 'Enter' || e.key === ' ') && !dismissed) dismiss();
   });
 
+  // ─── Page load progress bar ───
+  const loadBar = document.getElementById('page-load-bar');
+  const TOTAL_ASSETS = 45;
+  let loadedCount = 0;
+
+  function setBarProgress(pct) {
+    if (!loadBar) return;
+    loadBar.style.width = pct + '%';
+  }
+
+  function onAssetLoad() {
+    loadedCount++;
+    // 10% reserved for window.load; images fill 0→90%
+    setBarProgress(Math.round(loadedCount / TOTAL_ASSETS * 90));
+  }
+
+  function finishBar() {
+    if (!loadBar) return;
+    loadBar.style.width = '100%';
+    setTimeout(() => loadBar.classList.add('complete'), 300);
+  }
+
+  window.addEventListener('load', finishBar);
+
   // ─── Preload sphere images while animation plays ───
-  // Browser caches these; Three.js loader will reuse from cache
   function preloadSphere() {
+    setBarProgress(2); // show a tiny sliver immediately
     for (let i = 1; i <= 45; i++) {
       const img = new Image();
+      img.onload = img.onerror = onAssetLoad;
       img.src = `assets/images/thumbs/photo_${i}.jpg`;
     }
   }
-  setTimeout(preloadSphere, 150);
+  setTimeout(preloadSphere, 80);
 
   // ─── Damp scatter velocity smoothly ───
   const damper = setInterval(() => {

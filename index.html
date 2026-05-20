@@ -12,6 +12,25 @@
 </head>
 <body>
 
+<!-- ============ Page load progress bar (renders before any JS) ============ -->
+<div id="page-load-bar"></div>
+<style>
+#page-load-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #a78bfa, #f0abfc, #fcd34d);
+  z-index: 999999;
+  transition: width 0.35s ease, opacity 0.6s ease;
+  pointer-events: none;
+}
+#page-load-bar.complete {
+  width: 100% !important;
+  opacity: 0;
+}
+</style>
+
 <!-- ============ Intro / Landing overlay ============ -->
 <div id="intro-overlay" aria-label="加载动画，点击进入">
   <canvas id="introCanvas"></canvas>
