@@ -7,7 +7,7 @@
 <meta name="description" content="AI Creator · 用 AI 重新定义创意与影像表达" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -116,49 +116,64 @@
     </div>
   </section>
 
-  <!-- ====================== SECTION 2 — Name ====================== -->
+  <!-- ====================== SECTION 2 — Xiaoxi name card ====================== -->
   <section id="sec-2" class="section section-name" data-idx="1">
-    <div class="name-bg">
-      <div class="name-grid"></div>
-      <div class="name-orb name-orb-1"></div>
-      <div class="name-orb name-orb-2"></div>
+    <!-- 顶部 metadata -->
+    <div class="xx-topbar">
+      <div>— 02 NAME · MY NAME IS</div>
+      <div>INDEX 02 / 06</div>
     </div>
-    <div class="name-eyebrow">
-      <span class="eyebrow-num">— 02</span>
-      <span class="eyebrow-txt">MY NAME IS</span>
-    </div>
-    <div class="name-stage">
-      <h1 class="name-title" aria-label="Xiaoxi">
-        <svg viewBox="0 0 1200 280" class="name-svg" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <linearGradient id="grad-name" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#a78bfa"/>
-              <stop offset="50%" stop-color="#f0abfc"/>
-              <stop offset="100%" stop-color="#fcd34d"/>
-            </linearGradient>
-            <filter id="dispersion">
-              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="2"/>
-              <feDisplacementMap in="SourceGraphic" scale="0"/>
-            </filter>
-          </defs>
-          <text x="600" y="200" text-anchor="middle" class="svg-name-text" filter="url(#dispersion)">Xiaoxi</text>
-        </svg>
-        <span class="name-chinese" aria-hidden="true">晓汐</span>
-      </h1>
-      <div class="name-shadow" aria-hidden="true">Xiaoxi</div>
-    </div>
-    <div class="name-meta">
-      <div class="meta-col">
-        <span class="meta-k">ROLE</span>
-        <span class="meta-v">AI Creator</span>
+
+    <!-- 主区 -->
+    <div class="xx-main">
+      <!-- 左：大字 -->
+      <div class="xx-name">
+        <h1 class="xx-name-en">Xiaoxi</h1>
+        <div class="xx-name-cn">晓 · 汐</div>
       </div>
-      <div class="meta-col">
-        <span class="meta-k">BASED IN</span>
-        <span class="meta-v">Internet · 2026</span>
+
+      <!-- 右：叠层框 -->
+      <div class="xx-frames">
+        <div class="xx-frame-wrap" data-depth="3.0">
+          <div class="xx-frame-inner" data-color="purple">
+            <div class="xx-sweep" style="animation-delay: 0s;"></div>
+          </div>
+        </div>
+        <div class="xx-frame-wrap" data-depth="2.0">
+          <div class="xx-frame-inner" data-color="pink">
+            <div class="xx-sweep" style="animation-delay: 1.5s;"></div>
+          </div>
+        </div>
+        <div class="xx-frame-wrap" data-depth="1.0">
+          <div class="xx-frame-inner" data-color="orange">
+            <div class="xx-sweep" style="animation-delay: 3s;"></div>
+          </div>
+        </div>
       </div>
-      <div class="meta-col">
-        <span class="meta-k">FOCUS</span>
-        <span class="meta-v">Story · Video · Brand</span>
+    </div>
+
+    <!-- 底部元信息 -->
+    <div class="xx-meta-grid">
+      <div>
+        <div class="xx-meta-label">ROLE</div>
+        <div class="xx-meta-value">AI Creator</div>
+      </div>
+      <div>
+        <div class="xx-meta-label">EDITION</div>
+        <div class="xx-meta-value">N°002 / 2026</div>
+      </div>
+      <div>
+        <div class="xx-meta-label">FOCUS</div>
+        <div class="xx-meta-value">Story · Video · Brand</div>
+      </div>
+    </div>
+
+    <!-- 底部状态行 -->
+    <div class="xx-status-row">
+      <div>REF · XX-022026-AIC</div>
+      <div class="xx-availability">
+        <span class="xx-dot"></span>
+        AVAILABLE — INTERNET · 2026
       </div>
     </div>
   </section>

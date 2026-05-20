@@ -492,13 +492,134 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
    SECTION 2 — NAME
    ============================================================= */
 .section-name {
-  position: relative;
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(167,139,250,.07), transparent 60%),
-    var(--bg-0);
+  background: #0b0815;
+  color: #ebe9f3;
+  padding: 60px 80px;
   flex-direction: column;
-  padding: 120px 48px;
-  gap: 36px;
+  justify-content: center;
+  align-items: stretch;            /* override .section's center so card spans full width */
+  font-family: 'Inter', system-ui, sans-serif;
+  position: relative;
+  overflow: hidden;
+  gap: 0;
+}
+
+/* ---- Xiaoxi name card (section 02 redesign) ---- */
+.xx-topbar {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: rgba(235, 233, 243, 0.5);
+  margin-bottom: 60px;
+}
+
+.xx-main {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.xx-name-en {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 180px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin: 0;
+  background: linear-gradient(110deg, #c8a8ff 0%, #f0a0c8 55%, #ffd084 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.xx-name-cn {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 24px;
+  letter-spacing: 0.4em;
+  color: rgba(235, 233, 243, 0.4);
+  margin-top: 8px;
+  padding-left: 4px;
+}
+
+.xx-frames {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.xx-frame-wrap {
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.xx-frame-wrap:nth-child(1) { top: 10px; left: 0; }
+.xx-frame-wrap:nth-child(2) { top: 70px; left: 40px; }
+.xx-frame-wrap:nth-child(3) { top: 130px; left: 80px; }
+
+.xx-frame-inner {
+  width: 160px;
+  height: 100px;
+  border: 1px solid;
+  transition: transform 1.8s cubic-bezier(0.65, 0, 0.35, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.xx-frame-inner[data-color="purple"] { border-color: rgba(200, 168, 255, 0.7); transform: rotate(-8deg); }
+.xx-frame-inner[data-color="pink"]   { border-color: rgba(240, 160, 200, 0.7); transform: rotate(3deg); }
+.xx-frame-inner[data-color="orange"] { border-color: rgba(255, 208, 132, 0.7); transform: rotate(10deg); }
+
+.xx-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 0.5px solid rgba(235, 233, 243, 0.15);
+  margin-bottom: 20px;
+}
+
+.xx-meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: rgba(235, 233, 243, 0.4);
+  margin-bottom: 8px;
+}
+
+.xx-meta-value {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+}
+
+.xx-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: rgba(235, 233, 243, 0.45);
+}
+
+.xx-availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.xx-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6bd99a;
 }
 .name-bg {
   position: absolute; inset: 0; pointer-events: none;
