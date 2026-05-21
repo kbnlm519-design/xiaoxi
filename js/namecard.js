@@ -8,6 +8,22 @@
   var section = document.getElementById('sec-2');
   if (!section) return;
 
+  /* ── 层 A：大字逐字母入场（IntersectionObserver，只触发一次） ── */
+  var nameEn = section.querySelector('.xx-name-en');
+  var nameCn = section.querySelector('.xx-name-cn');
+  if (nameEn) {
+    var nameIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          nameEn.classList.add('visible');
+          if (nameCn) nameCn.classList.add('visible');
+          nameIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    nameIO.observe(nameEn);
+  }
+
   /* 触屏设备不启用视差 */
   if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
 

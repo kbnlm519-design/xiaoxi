@@ -550,6 +550,24 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   background-clip: text;
 }
 
+/* 层 A：逐字母入场（渐变下放到每个字母，避免 background-clip:text 被 inline-block 截断） */
+.xx-name-en .letter {
+  display: inline-block;
+  background: linear-gradient(110deg, #c8a8ff 0%, #f0a0c8 55%, #ffd084 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i) * 80ms);
+}
+.xx-name-en.visible .letter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .xx-name-cn {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
@@ -558,6 +576,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: rgba(235, 233, 243, 0.4);
   margin-top: 8px;
   padding-left: 4px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 700ms;   /* 所有字母完成后再出现 */
+}
+.xx-name-cn.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .xx-frames {
