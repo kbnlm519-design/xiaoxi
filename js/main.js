@@ -359,16 +359,6 @@
   // ===== GSAP SCROLL ANIMATIONS =====
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-  // ── SEC 1 HERO: parallax exit ──
-  gsap.to('.hero-overlay', {
-    yPercent: -25, opacity: 0, ease: 'none',
-    scrollTrigger: { trigger: '#sec-1', start: 'top top', end: 'bottom top', scrub: 1.2 }
-  });
-  gsap.to('.hero-hint', {
-    opacity: 0, y: -16, ease: 'none',
-    scrollTrigger: { trigger: '#sec-1', start: 'top top', end: '18% top', scrub: true }
-  });
-
   // ── SEC 2 NAME: reveal + 3D tilt ──
   const nameTitle = $('.name-title');
   const nameEyebrow = $('.name-eyebrow');

@@ -73,51 +73,28 @@
 <div class="progress" aria-hidden="true">
   <div class="progress-line"><span id="progressFill"></span></div>
   <div class="progress-labels">
-    <span class="p-label" data-i="0">01 · INTRO</span>
-    <span class="p-label" data-i="1">02 · NAME</span>
-    <span class="p-label" data-i="2">03 · BRIEF</span>
-    <span class="p-label" data-i="3">04 · WORK</span>
-    <span class="p-label" data-i="4">05 · VIDEO</span>
-    <span class="p-label" data-i="5">06 · END</span>
+    <span class="p-label" data-i="0">01 · NAME</span>
+    <span class="p-label" data-i="1">02 · BRIEF</span>
+    <span class="p-label" data-i="2">03 · WORK</span>
+    <span class="p-label" data-i="3">04 · VIDEO</span>
+    <span class="p-label" data-i="4">05 · END</span>
   </div>
 </div>
 
 <!-- ============ Side nav ============ -->
 <nav class="side-nav" aria-label="section navigation">
-  <a href="#sec-1" data-idx="0" class="dot active"><span>开场</span></a>
-  <a href="#sec-2" data-idx="1" class="dot"><span>Xiaoxi</span></a>
-  <a href="#sec-3" data-idx="2" class="dot"><span>简介</span></a>
-  <a href="#sec-4" data-idx="3" class="dot"><span>作品集</span></a>
-  <a href="#sec-5" data-idx="4" class="dot"><span>视频</span></a>
-  <a href="#sec-6" data-idx="5" class="dot"><span>致谢</span></a>
+  <a href="#sec-2" data-idx="0" class="dot active"><span>Xiaoxi</span></a>
+  <a href="#sec-3" data-idx="1" class="dot"><span>简介</span></a>
+  <a href="#sec-4" data-idx="2" class="dot"><span>作品集</span></a>
+  <a href="#sec-5" data-idx="3" class="dot"><span>视频</span></a>
+  <a href="#sec-6" data-idx="4" class="dot"><span>致谢</span></a>
 </nav>
 
 <!-- ============ Scroller ============ -->
 <main id="scroller">
 
-  <!-- ====================== SECTION 1 — Particle AI ====================== -->
-  <section id="sec-1" class="section section-hero" data-idx="0">
-    <canvas id="particleCanvas"></canvas>
-    <div class="hero-aurora" aria-hidden="true"></div>
-    <div class="hero-overlay">
-      <div class="hero-meta-top">
-        <span class="meta-line meta-line-l"></span>
-        <span class="meta-text">[ 0.001 ] · INIT SEQUENCE</span>
-        <span class="meta-line meta-line-r"></span>
-      </div>
-      <div class="hero-status" id="heroStatus">
-        <span class="status-dot"></span>
-        <span class="status-text">scattering moons</span>
-      </div>
-    </div>
-    <div class="hero-hint">
-      <span>SCROLL</span>
-      <div class="hint-line"></div>
-    </div>
-  </section>
-
-  <!-- ====================== SECTION 2 — Xiaoxi name card ====================== -->
-  <section id="sec-2" class="section section-name" data-idx="1">
+<!-- ====================== SECTION 2 — Xiaoxi name card ====================== -->
+  <section id="sec-2" class="section section-name" data-idx="0">
     <!-- 粒子背景层（取自 Hero 发光散点，更克制） -->
     <canvas id="cardParticles" class="xx-particles" aria-hidden="true"
             data-particle-field data-count="52" data-opacity="0.3"
@@ -189,7 +166,7 @@
   </section>
 
   <!-- ====================== SECTION 3 — Brief / Stats ====================== -->
-  <section id="sec-3" class="section section-brief" data-idx="2">
+  <section id="sec-3" class="section section-brief" data-idx="1">
     <div class="brief-grid-bg"></div>
     <div class="brief-content">
       <div class="brief-eyebrow">
@@ -229,7 +206,7 @@
   </section>
 
   <!-- ====================== SECTION 4 — Photo Sphere (kept) ====================== -->
-  <section id="sec-4" class="section section-sphere" data-idx="3">
+  <section id="sec-4" class="section section-sphere" data-idx="2">
     <div class="sphere-header">
       <div class="sphere-eye"><span class="dot-pulse"></span><span>04 · PORTFOLIO</span></div>
       <h2>每一帧 · 都是<em> AI 的呼吸</em></h2>
@@ -244,7 +221,7 @@
   </section>
 
   <!-- ====================== SECTION 5 — Video Showreel ====================== -->
-  <section id="sec-5" class="section section-video" data-idx="4">
+  <section id="sec-5" class="section section-video" data-idx="3">
     <div class="video-bg-text">SHOWREEL</div>
     <div class="video-eyebrow">
       <span>05 · MOTION</span>
@@ -315,7 +292,7 @@
 
   <!-- ====================== SECTION 6 — End ====================== -->
   <!-- NOTE: Tree animation injected by tree.js after sec-6 -->
-  <section id="sec-6" class="section section-end" data-idx="5">
+  <section id="sec-6" class="section section-end" data-idx="4">
     <canvas id="constCanvas"></canvas>
     <div class="end-content">
       <div class="end-eyebrow">
@@ -349,9 +326,6 @@
   </section>
 
 
-  <!-- ====================== TREE LIFE ANIMATION ====================== -->
-  <div id="sec-tree" class="section-tree-wrap" aria-label="生命生长动画"></div>
-
 </main>
 
 <!-- Lightbox -->
@@ -369,15 +343,13 @@
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
 
 <script src="js/intro.js"></script>
-<script src="js/moons.js"></script>
-<script src="js/hero.js"></script>
 <script src="js/main.js"></script>
 <script src="js/particleField.js"></script>
 <script src="js/namecard.js"></script>
 <script src="js/particles.js"></script>
 <script src="js/constellation.js"></script>
 <script src="js/sphere.js"></script>
-<script src="js/tree.js"></script>
+
 
 </body>
 </html>
